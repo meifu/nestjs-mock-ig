@@ -1,8 +1,8 @@
 export class QueryDto {
-  page: number;
-  take: number;
+  page: number = 0;
+  take: number = 0;
 }
 
 export class HeaderDto {
-  current_user_id: number;
+  current_user_id: number = 0;
 }
