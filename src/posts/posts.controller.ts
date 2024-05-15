@@ -10,6 +10,7 @@ import {
   Query,
   ParseIntPipe,
   HttpStatus,
+  UseGuards,
   // UsePipes,
 } from '@nestjs/common';
 import {
@@ -26,6 +27,7 @@ import { UpdatePostDto } from './dto/update-post.dto';
 import { PostEntity } from './entities/post.entity';
 // import { ZodValidationPipe } from 'src/validation.pipe';
 import { ValidationPipe } from 'src/validation.pipe';
+import { RolesGuard } from 'src/role.guard';
 
 @ApiHeader({
   name: 'X-MyHeader',
@@ -33,6 +35,7 @@ import { ValidationPipe } from 'src/validation.pipe';
 })
 @Controller('posts')
 @ApiTags('posts')
+@UseGuards(RolesGuard)
 export class PostsController {
   constructor(private readonly postsService: PostsService) {}
 
